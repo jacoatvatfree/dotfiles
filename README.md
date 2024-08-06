@@ -24,7 +24,7 @@ The following tools are required to get the best out of this configuration.
 | Ruby 3+                                                                    | `brew install rbenv` <br/> `rbenv install 3.4.4` <br/> `rbenv global 3.4.4`                                    |
 
 - [Install a Nerd font and set it in your terminal](https://www.nerdfonts.com/font-downloads)  
-  E.g. FiraCode Nerd Font
+  E.g. JetBrainsMono Nerd Font
 
 - Optional: [Set up Open with ... for Neovim](https://gist.github.com/rpapallas/31dfdf0626d078a357fccd46cdf6eafd)
 

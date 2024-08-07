@@ -3,6 +3,7 @@ return {
   event = "VimEnter",
   opts = {
     redraw_on_resize = false,
+    noautocmd = true,
   },
   config = function()
     local alpha = require("alpha")

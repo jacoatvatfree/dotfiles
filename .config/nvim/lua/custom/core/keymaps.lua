@@ -70,3 +70,6 @@ keymap.set("n", "<c-l>", "<cmd>wincmd l<cr>", { desc = "Move to window right" })
 keymap.set("n", "<C-d>", "<cmd>qa<cr>", { desc = "Close all" })
 keymap.set("v", "<C-d>", "<cmd>qa<cr>", { desc = "Close all" })
 keymap.set("i", "<C-d>", "<cmd>qa<cr>", { desc = "Close all" })
+
+-- Codeium
+keymap.set("n", "<leader>cc", ":Codeium Chat<cr>", { desc = "[C]odeium [C]hat" })

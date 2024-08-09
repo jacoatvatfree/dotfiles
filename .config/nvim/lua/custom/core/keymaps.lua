@@ -72,4 +72,9 @@ keymap.set("v", "<C-d>", "<cmd>qa<cr>", { desc = "Close all" })
 keymap.set("i", "<C-d>", "<cmd>qa<cr>", { desc = "Close all" })
 
 -- Codeium
-keymap.set("n", "<leader>cc", ":Codeium Chat<cr>", { desc = "[C]odeium [C]hat" })
+keymap.set("n", "<leader>cc", function()
+  return vim.fn["codeium#Chat"]()
+end, { desc = "[C]odeium [C]hat", expr = true, silent = true })
+keymap.set("i", "<C-.>", function()
+  return vim.fn["codeium#CycleCompletions"](1)
+end, { expr = true, silent = true })

@@ -32,6 +32,9 @@ return {
       grep_string = {
         path_display = filenameFirst,
       },
+      oldfiles = {
+        path_display = filenameFirst,
+      },
     },
   }),
 }

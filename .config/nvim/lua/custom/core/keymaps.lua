@@ -78,3 +78,6 @@ end, { desc = "[C]odeium [C]hat", expr = true, silent = true })
 keymap.set("i", "<C-.>", function()
   return vim.fn["codeium#CycleCompletions"](1)
 end, { expr = true, silent = true })
+
+-- Folding shortcut
+keymap.set("n", "zz", "zA", { desc = "Toggle fold" })

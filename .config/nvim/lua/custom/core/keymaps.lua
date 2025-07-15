@@ -82,8 +82,12 @@ keymap.set("i", "<C-d>", "<cmd>qa<cr>", { desc = "Close all" })
 -- -- CodeCompanion
 -- keymap.set("n", "<leader>aa", ":CodeCompanionChat Toggle<cr>", { desc = "Toggle CodeCompanion Chat" })
 
-keymap.set("n", "<A-o>", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
-keymap.set("n", "<A-i>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+keymap.set("n", "<M-o>", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
+keymap.set("n", "<M-i>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 
 -- Folding shortcut
 keymap.set("n", "zz", "zA", { desc = "Toggle fold" })
+
+-- Quickfix shortcuts
+keymap.set("n", "<M-j>", "<cmd>cnext<cr>", { desc = "Next quickfix item" })
+keymap.set("n", "<M-k>", "<cmd>cprev<cr>", { desc = "Previous quickfix item" })

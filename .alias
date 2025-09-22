@@ -18,6 +18,7 @@ alias loadapp='adb install -r'
 # JSON Calc https://www.npmjs.com/package/jsoncalc
 alias jsonc='function _jsonc(){ (for i in $@; do :; done; jsoncalc $@ & $EDITOR $i) }; _jsonc'
 compdef '_files -g "*.(json|yaml|yml)"' _jsonc
+alias ta="tmux attach"
 
 # Custom functions
 function fn_broken_symlinks () {
@@ -49,4 +50,6 @@ function fn_replace_with_git_submodule() {
   git submodule add git@github.com:vatfree/${2:-$1}.git $1
 }
 
-alias ai="aider --editor-model openai/o3-mini --model claude-3-7-sonnet-latest --no-auto-commit --auto-lint --no-show-model-warnings"
+# alias ai="aider --editor-model openai/o3-mini --model claude-3-7-sonnet-latest --no-auto-commit --auto-lint --no-show-model-warnings"
+alias ai="opencode"
+alias p=pnpm

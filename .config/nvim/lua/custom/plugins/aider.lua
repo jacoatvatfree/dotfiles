@@ -38,12 +38,12 @@ return {
   },
   config = true,
   opts = {
-    aider_cmd = "aider --editor-model o4-mini --model claude-sonnet-4-20250514",
+    aider_cmd = "aider --editor-model o4-mini --model o3",
     args = {
       "--vim",
       "--no-show-model-warnings",
       "--auto-lint",
-      "--no-auto-commits",
+      "--auto-commits",
       "--pretty",
       "--stream",
     },

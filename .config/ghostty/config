@@ -3,7 +3,7 @@ font-family = "JetBrainsMono Nerd Font"
 font-size = 14
 
 # Theme configuration - use separate light and dark themes
-theme = dark:catppuccin-mocha,light:catppuccin-latte
+theme = dark:Catppuccin Mocha,light:Catppuccin Latte
 
 # Window configuration
 window-decoration = true

@@ -91,3 +91,9 @@ keymap.set("n", "zz", "zA", { desc = "Toggle fold" })
 -- Quickfix shortcuts
 keymap.set("n", "<M-j>", "<cmd>cnext<cr>", { desc = "Next quickfix item" })
 keymap.set("n", "<M-k>", "<cmd>cprev<cr>", { desc = "Previous quickfix item" })
+
+-- Move visual selection down
+keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
+
+-- Move visual selection up
+keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })

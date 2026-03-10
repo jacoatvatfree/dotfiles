@@ -3,14 +3,14 @@ font-family = "JetBrainsMono Nerd Font"
 font-size = 14
 
 # Theme configuration - use separate light and dark themes
-theme = dark:Catppuccin Mocha,light:Catppuccin Latte
+theme = light:Catppuccin Latte,dark:Catppuccin Mocha
 
 # Window configuration
 window-decoration = true
 window-theme = auto
 window-padding-x = 10
 window-padding-y = 10
-background-opacity = 0.9
+# background-opacity = 0.9
 
 # Terminal behavior
 scrollback-limit = 10000
@@ -18,4 +18,3 @@ confirm-close-surface = false
 
 # Shell integration
 shell-integration = detect
-shell-integration-features = cursor,sudo,title

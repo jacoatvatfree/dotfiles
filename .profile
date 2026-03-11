@@ -69,9 +69,6 @@ bindkey "^[[F" end-of-line
 
 export LANG=en_US.UTF-8
 
-# Rust
-. "$HOME/.cargo/env"
-
 source "$HOME/.alias"
 source "$HOME/.private"
 

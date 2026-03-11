@@ -1,28 +1,14 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    event = { "BufReadPre", "BufNewFile" },
+    lazy = false,
+    priority = 1000,
     build = ":TSUpdate",
     dependencies = {
       "windwp/nvim-ts-autotag",
-      "nvim-treesitter/nvim-treesitter-refactor",
     },
     config = function()
-      -- import nvim-treesitter plugin
-      local treesitter = require("nvim-treesitter.configs")
-
-      -- configure treesitter
-      treesitter.setup({ -- enable syntax highlighting
-        highlight = {
-          enable = true,
-        },
-        -- enable indentation
-        indent = { enable = true },
-        -- enable autotagging (w/ nvim-ts-autotag plugin)
-        autotag = {
-          enable = true,
-        },
-        -- ensure these language parsers are installed
+      require("nvim-treesitter").setup({
         ensure_installed = {
           "json",
           "javascript",
@@ -45,24 +31,6 @@ return {
           "vimdoc",
           "c",
           "java",
-        },
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = "<cr>",
-            node_incremental = "<tab>",
-            scope_incremental = false,
-            node_decremental = "<s-tab>",
-          },
-          refactor = {
-            smart_rename = {
-              enable = true,
-              -- Assign keymaps to false to disable them, e.g. `smart_rename = false`.
-              keymaps = {
-                smart_rename = "grr",
-              },
-            },
-          },
         },
       })
     end,

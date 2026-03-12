@@ -37,6 +37,28 @@ if ! command -v nvm &> /dev/null && [ ! -s "$HOME/.nvm/nvm.sh" ]; then
     nvm use --lts
 fi
 
+# Source nvm for this session if it exists but wasn't loaded
+if [ ! -v NVM_DIR ] && [ -s "$HOME/.nvm/nvm.sh" ]; then
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+fi
+
+# Check and install tree-sitter CLI (required for nvim-treesitter)
+if ! command -v tree-sitter &> /dev/null; then
+    echo "Installing tree-sitter CLI..."
+    if command -v npm &> /dev/null; then
+        npm install -g tree-sitter-cli
+        echo "tree-sitter CLI installed via npm"
+    else
+        echo "Warning: npm not found. tree-sitter CLI installation skipped."
+        echo "You may need to install it manually: npm install -g tree-sitter-cli"
+    fi
+else
+    # Check version
+    TS_VERSION=$(tree-sitter --version | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
+    echo "tree-sitter CLI already installed (version $TS_VERSION)"
+fi
+
 mkdir -p "$HOME/.config"
 dotfiles=".alias .bashrc .gitconfig .config/starship.toml .config/nvim .config/tmux .config/ghostty .config/opencode .profile .zshrc"
 

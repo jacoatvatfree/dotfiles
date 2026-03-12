@@ -88,6 +88,17 @@ touch $HOME/.private
 chsh -s /bin/zsh
 
 #==============
+# Install tree-sitter CLI (required for nvim-treesitter)
+#==============
+if ! command -v tree-sitter &> /dev/null; then
+    echo "Installing tree-sitter CLI..."
+    # Source nvm if not already available
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    npm install -g tree-sitter-cli
+fi
+
+#==============
 # Restore iTerm profile
 #==============
 cp -f "$(pwd)/com.googlecode.iterm2.plist" "$HOME/Library/Preferences/com.googlecode.iterm2.plist"

@@ -1,7 +1,11 @@
 return {
   "nvim-treesitter/nvim-treesitter-textobjects",
   lazy = true,
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter",
+  },
   config = function()
+    -- Note: The new API still uses require("nvim-treesitter.configs") for textobjects
     require("nvim-treesitter.configs").setup({
       textobjects = {
         select = {

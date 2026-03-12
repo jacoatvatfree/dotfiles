@@ -15,6 +15,9 @@ export PYENV_ROOT="$HOME/.local/share/pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+# Python user bin for pip installed packages
+export PATH="$HOME/Library/Python/3.9/bin:$PATH"
+
 source "$HOME/.profile"
 add-zsh-hook chpwd load-nvmrc
 
@@ -65,3 +68,4 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+export PATH=$HOME/.meteor:$PATH

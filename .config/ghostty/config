@@ -17,4 +17,5 @@ scrollback-limit = 10000
 confirm-close-surface = false
 
 # Shell integration
-shell-integration = detect
+# Set to none to prevent window title override in tmux
+shell-integration = none

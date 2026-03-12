@@ -1,3 +1,4 @@
 .config/tmux/plugins/
 */nvim/.luarc.json
 .aider*
+tags

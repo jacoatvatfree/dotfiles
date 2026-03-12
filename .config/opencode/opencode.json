@@ -9,29 +9,15 @@
         "-y",
         "mongodb-mcp-server",
         "--connectionString",
-        "mongodb://localhost:27017",
+        "mongodb://127.0.0.1:27017",
         "--readonly"
       ],
-      "enabled": false
+      "enabled": true
     },
     "playwright": {
       "type": "local",
       "command": ["npx", "@playwright/mcp@latest"],
       "enabled": true
-    },
-    "sequential-thinking": {
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "@modelcontextprotocol/server-sequential-thinking"
-      ],
-      "enabled": false
-    },
-    "context7": {
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp",
-      "enabled": false
     }
   }
 }

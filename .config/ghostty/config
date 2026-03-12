@@ -18,4 +18,4 @@ confirm-close-surface = false
 
 # Shell integration
 # Set to none to prevent window title override in tmux
-shell-integration = none
+shell-integration-features = cursor,sudo,title

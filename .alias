@@ -53,3 +53,7 @@ function fn_replace_with_git_submodule() {
 # alias ai="aider --editor-model openai/o3-mini --model claude-3-7-sonnet-latest --no-auto-commit --auto-lint --no-show-model-warnings"
 alias ai="opencode"
 alias p=pnpm
+timr() {
+  (cd $HOME/Projects/timereport; jq -s 'add' <(./generate-github-report.py "$@") <(./generate-slack-report.py "$@") | ./format-time-report.py)
+}
+

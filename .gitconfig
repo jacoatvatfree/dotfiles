@@ -9,7 +9,6 @@
 	submodule = log
 [core]
 	editor = nvim
-	excludesFile = ~/.gitignore_global
 [pull]
 	rebase = false
 [user]

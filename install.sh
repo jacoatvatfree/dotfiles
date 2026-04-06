@@ -84,7 +84,7 @@ if ! command -v opencode &> /dev/null; then
     # Source nvm if not already available
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-    npm install -g @anomalyco/opencode
+    npm install -g opencode-ai
 fi
 
 #==============
@@ -93,6 +93,75 @@ fi
 if ! command -v tmux &> /dev/null; then
     echo "Installing tmux..."
     brew install tmux
+fi
+
+#==============
+# Install starship (if not already installed)
+#==============
+if ! command -v starship &> /dev/null; then
+    echo "Installing starship..."
+    brew install starship
+fi
+
+#==============
+# Install pyenv (if not already installed)
+#==============
+if ! command -v pyenv &> /dev/null; then
+    echo "Installing pyenv..."
+    brew install pyenv
+    mkdir -p ~/.local/share/pyenv
+fi
+
+#==============
+# Install Python 3.13 for nvim Mason tools
+#==============
+# Source pyenv for this session if not already available
+export PYENV_ROOT="$HOME/.local/share/pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv &> /dev/null; then
+    eval "$(pyenv init -)"
+fi
+
+# Check if Python 3.13+ is installed
+PYTHON_VERSION=$(pyenv versions --bare 2>/dev/null | grep -E "^3\.(1[3-9]|[2-9][0-9])" | head -1)
+
+if [ -z "$PYTHON_VERSION" ]; then
+    echo "Installing Python 3.13.12 for nvim Mason tools (required for black, pylint, etc.)..."
+    pyenv install 3.13.12
+    pyenv global 3.13.12
+else
+    echo "Python 3.13+ already installed: $PYTHON_VERSION"
+    # Set global version if not already set
+    CURRENT_GLOBAL=$(pyenv global 2>/dev/null)
+    if ! echo "$CURRENT_GLOBAL" | grep -qE "^3\.(1[3-9]|[2-9][0-9])"; then
+        echo "Setting $PYTHON_VERSION as global Python version..."
+        pyenv global "$PYTHON_VERSION"
+    fi
+fi
+
+#==============
+# Install direnv (if not already installed)
+#==============
+if ! command -v direnv &> /dev/null; then
+    echo "Installing direnv..."
+    brew install direnv
+fi
+
+#==============
+# Install rbenv (if not already installed)
+#==============
+if ! command -v rbenv &> /dev/null; then
+    echo "Installing rbenv..."
+    brew install rbenv
+fi
+
+#==============
+# Install Java (if not already installed)
+#==============
+if ! /usr/libexec/java_home -v 17 &> /dev/null; then
+    echo "Installing Java 17..."
+    brew install openjdk@17
+    sudo ln -sfn "$(brew --prefix)/opt/openjdk@17/libexec/openjdk.jdk" /Library/Java/JavaVirtualMachines/openjdk-17.jdk
 fi
 
 #==============

@@ -19,6 +19,7 @@ The following tools are required to get the best out of this configuration.
 | [git removed-branches](https://github.com/nemisj/git-removed-branches)     | `npm install -g git-removed-branches`                                                                          |
 | [sdkman](https://github.com/sdkman/sdkman-cli) & java                      | `curl -s "https://get.sdkman.io" \| bash` `sdkman install java 21` `sdkman install maven`                      |
 | Ruby 3+                                                                    | `brew install rbenv` <br/> `rbenv install 3.4.4` <br/> `rbenv global 3.4.4`                                    |
+| Python 3.13+                                                               | `brew install pyenv` <br/> `pyenv install 3.13.12` <br/> `pyenv global 3.13.12`                                 |
 
 ## Setup
 
@@ -38,6 +39,7 @@ The install script will automatically:
 - Install Git with XCode command line tools (if not already installed)
 - Install Homebrew (if not already installed)
 - Install NodeJS with nvm (if not already installed)
+- Install Python 3.13+ with pyenv (if not already installed, required for Neovim Mason tools like black and pylint)
 - Install tree-sitter CLI (if not already installed, required for Neovim syntax highlighting)
 - Install other dependencies via `brew bundle`
 - Create symlinks to configuration files

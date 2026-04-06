@@ -39,7 +39,7 @@ PATH=$PATH:$ANDROID_HOME/sdk/tools/bin
 PATH=$PATH:$ANDROID_HOME/sdk/platform-tools
 PATH=$PATH:$ANDROID_HOME/sdk/cmdline-tools/latest/bin
 export ANDROID_SDK_ROOT=${ANDROID_HOME}
-export JAVA_HOME=$(/usr/libexec/java_home -v 11)
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
 
 # Meteor dev
 export PATH=$HOME/.meteor:$PATH

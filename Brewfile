@@ -10,6 +10,7 @@ brew "universal-ctags"
 brew "starship"
 brew "gh"
 brew "rbenv"
+brew "pyenv"
 
 # Applications
 cask "font-jetbrains-mono-nerd-font"

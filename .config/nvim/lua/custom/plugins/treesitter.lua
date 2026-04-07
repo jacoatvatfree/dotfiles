@@ -1,7 +1,6 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    branch = "master", -- Pin to master branch (old stable API)
     lazy = false,
     priority = 1000,
     build = ":TSUpdate",
@@ -9,56 +8,83 @@ return {
       "windwp/nvim-ts-autotag",
     },
     config = function()
-      -- import nvim-treesitter plugin
-      local treesitter = require("nvim-treesitter.configs")
+      -- Install parsers
+      require("nvim-treesitter").install({
+        "json",
+        "javascript",
+        "typescript",
+        "tsx",
+        "yaml",
+        "html",
+        "css",
+        "prisma",
+        "markdown",
+        "markdown_inline",
+        "svelte",
+        "graphql",
+        "bash",
+        "lua",
+        "vim",
+        "dockerfile",
+        "gitignore",
+        "query",
+        "vimdoc",
+        "c",
+        "java",
+        "vue",
+      })
 
-      -- configure treesitter
-      treesitter.setup({
-        -- enable syntax highlighting
-        highlight = {
-          enable = true,
-        },
-        -- enable indentation
-        indent = { enable = true },
-        -- enable autotagging (w/ nvim-ts-autotag plugin)
-        autotag = {
-          enable = true,
-        },
-        -- ensure these language parsers are installed
-        ensure_installed = {
+      -- Enable treesitter highlighting for supported filetypes
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
           "json",
           "javascript",
           "typescript",
-          "tsx",
+          "typescriptreact",
           "yaml",
           "html",
           "css",
           "prisma",
           "markdown",
-          "markdown_inline",
           "svelte",
           "graphql",
           "bash",
+          "sh",
           "lua",
           "vim",
           "dockerfile",
           "gitignore",
           "query",
-          "vimdoc",
           "c",
           "java",
           "vue",
         },
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = "<CR>",
-            node_incremental = "<TAB>",
-            scope_incremental = false,
-            node_decremental = "<S-TAB>",
-          },
-        },
+        callback = function()
+          vim.treesitter.start()
+        end,
       })
+
+      -- Enable indentation
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
+          "json",
+          "javascript",
+          "typescript",
+          "typescriptreact",
+          "yaml",
+          "html",
+          "css",
+          "lua",
+          "bash",
+          "sh",
+        },
+        callback = function()
+          vim.bo.indentexpr = "v:lua.vim.treesitter.indentexpr()"
+        end,
+      })
+
+      -- Configure nvim-ts-autotag
+      require("nvim-ts-autotag").setup()
     end,
   },
 }

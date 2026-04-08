@@ -1,5 +1,4 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
-chmod -R go-w "$(brew --prefix)/share"
 
 if [ $TERM_PROGRAM != "Apple_Terminal" ]; then
   eval "$(starship init zsh)"

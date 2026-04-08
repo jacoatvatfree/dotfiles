@@ -18,12 +18,16 @@ return {
 
     local keymap = vim.keymap -- for conciseness
 
+    -- Set a global rename keymap as fallback (will be overridden by LSP-specific one)
+    keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Smart re[N]ame", silent = true })
+
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
         -- Buffer local mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         local opts = { buffer = ev.buf, silent = true }
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
         -- set keybinds
         opts.desc = "Show LSP references"
@@ -44,8 +48,9 @@ return {
         opts.desc = "See available code [A]ctions"
         keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
 
+        -- Smart rename
         opts.desc = "Smart re[N]ame"
-        keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
+        keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
         opts.desc = "Show buffer diagnostics"
         keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file

@@ -71,10 +71,4 @@ function each-dirty-submodule() {
 # alias ai="aider --editor-model openai/o3-mini --model claude-3-7-sonnet-latest --no-auto-commit --auto-lint --no-show-model-warnings"
 alias ai="opencode"
 alias p=pnpm
-<<<<<<< Updated upstream
-=======
-timr() {
-  (cd $HOME/Projects/timereport; jq -s 'add'  <(./generate-calendar-report.py "$@") <(./generate-github-report.py "$@") <(./generate-slack-report.py "$@") | ./format-time-report.py)
-}
 
->>>>>>> Stashed changes

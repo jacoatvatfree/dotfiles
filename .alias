@@ -50,6 +50,24 @@ function fn_replace_with_git_submodule() {
   git submodule add git@github.com:vatfree/${2:-$1}.git $1
 }
 
+function each-dirty-submodule() {
+  if [[ $# -eq 0 ]]; then
+    echo "Usage: each-dirty-submodule <command> [args...]"
+    return 1
+  fi
+
+  local git_root=$(git rev-parse --show-toplevel 2>/dev/null)
+  if [[ -z "$git_root" ]]; then
+    echo "Error: Not in a git repository"
+    return 1
+  fi
+
+  cd "$git_root" && git dirty-submodules | while IFS= read -r sub; do
+    echo "==> $sub"
+    (cd "$sub" && "$@")
+  done
+}
+
 # alias ai="aider --editor-model openai/o3-mini --model claude-3-7-sonnet-latest --no-auto-commit --auto-lint --no-show-model-warnings"
 alias ai="opencode"
 alias p=pnpm

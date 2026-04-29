@@ -66,6 +66,9 @@ keymap.set("n", "<c-k>", "<cmd>wincmd k<cr>", { desc = "Move to window above" })
 keymap.set("n", "<c-h>", "<cmd>wincmd h<cr>", { desc = "Move to window left" })
 keymap.set("n", "<c-l>", "<cmd>wincmd l<cr>", { desc = "Move to window right" })
 
+-- Notification history
+keymap.set("n", "<leader>sm", "<cmd>Noice telescope<cr>", { desc = "[S]earch [M]essages/Notifications" })
+
 -- Close all
 keymap.set("n", "<C-d>", "<cmd>qa<cr>", { desc = "Close all" })
 keymap.set("v", "<C-d>", "<cmd>qa<cr>", { desc = "Close all" })

@@ -12,6 +12,9 @@ export PYENV_ROOT="$HOME/.local/share/pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+# Python user bin for pip installed packages
+export PATH="$HOME/Library/Python/3.9/bin:$PATH"
+
 source "$HOME/.profile"
 add-zsh-hook chpwd load-nvmrc
 
@@ -56,9 +59,15 @@ export PATH="$HOME/.opencode/bin:$PATH"
 export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
 # pnpm
-export PNPM_HOME="/Users/jaco/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+<<<<<<< Updated upstream
+=======
+export PATH=$HOME/.meteor:$PATH
+export PATH=/Users/vatfree/.meteor:$PATH
+export PATH="$HOME/.meteor:$PATH"
+>>>>>>> Stashed changes

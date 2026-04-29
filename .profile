@@ -81,3 +81,5 @@ export PATH="$PATH:$HOME/.lmstudio/bin"
 export PATH="$PATH:/Users/jaco/.lmstudio/bin"
 # End of LM Studio CLI section
 
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+

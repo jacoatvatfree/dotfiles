@@ -65,9 +65,4 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-<<<<<<< Updated upstream
-=======
-export PATH=$HOME/.meteor:$PATH
-export PATH=/Users/vatfree/.meteor:$PATH
 export PATH="$HOME/.meteor:$PATH"
->>>>>>> Stashed changes
